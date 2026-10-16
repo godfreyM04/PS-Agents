@@ -23,46 +23,46 @@ The highway environment changes while the trailer is making decisions, i.e. othe
 Classification: Multi-agent
 The trailer operates alongside other vehicles, pedestrians, cyclists, and traffic enforcement officers.
 
+## Question 2: Directed Graph, Search Tree & Abstraction
 
+### 2.1 Concept of Abstraction
+In AI problem formulation, abstraction simplifies the physical world by stripping away non-essential micro-details—such as individual potholes, street lights, speed bumps, local fuel stations, and transient traffic congestion. 
 
+For our trailer transport agent operating across Kenya's highway network (connecting Nairobi, the Central Highlands, the Rift Valley, and the Lake Victoria Basin), the search space is defined strictly by treating:
+* **States (Nodes):** Major towns and cities (e.g., Nairobi, Naivasha, Nakuru, Kericho, Kisumu).
+* **Actions / Edges:** Major highway segments connecting these urban centers (e.g., Nairobi–Nakuru Highway A104, Mau Summit–Kericho Road B1).
 
+---
 
+### 2.2 Directed Graph of Kenya's Highway Network
+The directed graph models the highway segments, directions, and accurate road distances verified via Google Maps.
 
+| From Node (Current Town) | To Node (Next Town) | Highway Segment / Route | Distance (km) |
+| :--- | :--- | :--- | :--- |
+| **Nairobi** | Naivasha | Nairobi–Nakuru Highway (A104) | ~88 km |
+| **Naivasha** | Nakuru | Nairobi–Nakuru Highway (A104) | ~70 km |
+| **Nakuru** | Kericho | Mau Summit–Kericho Road (B1) | ~107 km |
+| **Kericho** | Kisumu | Kericho–Kisumu Highway (B1) | ~83 km |
+| **Nakuru** | Eldoret | Nakuru–Eldoret Highway (A104) | ~128 km |
+| **Eldoret** | Kisumu | Eldoret–Kisumu Highway (A104/B1) | ~117 km |
 
+---
 
+### 2.3 Search Tree Expansion (Initial State: Nairobi to Goal State: Kisumu)
+The search tree expands outward from the initial state, tracking cumulative path costs (distances in kilometers) along each possible route branch.
 
+```text
+Level 0 (Initial State):
+└── Nairobi [Cost: 0 km]
+    ├── Naivasha [Cumulative Cost: 88 km]
+    │   └── Nakuru [Cumulative Cost: 158 km]
+    │       ├── Kericho [Cumulative Cost: 265 km]
+    │       │   └── Kisumu [GOAL STATE] [Cumulative Cost: 348 km]
+    │       └── Eldoret [Cumulative Cost: 286 km]
+    │           └── Kisumu [GOAL STATE] [Cumulative Cost: 403 km]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#Question 3:
+```
+Question 3:
 
 ## 3. Optimal Path Using Distance as Path Cost
 
