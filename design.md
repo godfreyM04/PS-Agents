@@ -23,6 +23,45 @@ The highway environment changes while the trailer is making decisions, i.e. othe
 Classification: Multi-agent
 The trailer operates alongside other vehicles, pedestrians, cyclists, and traffic enforcement officers.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #Question 3:
 
 ## 3. Optimal Path Using Distance as Path Cost
